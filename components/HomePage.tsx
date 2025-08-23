@@ -1,15 +1,35 @@
-
-import React from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import type { MysteryBox } from '../types';
 import { MYSTERY_BOXES } from '../constants';
 import { MysteryBoxCard } from './MysteryBoxCard';
 import { TrustBanner } from './TrustBanner';
+import { assets } from '../assets';
+import { ChevronLeftIcon, ChevronRightIcon } from './icons';
 
 interface HomePageProps {
   onViewDetails: (box: MysteryBox) => void;
 }
 
 export const HomePage: React.FC<HomePageProps> = ({ onViewDetails }) => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const nextSlide = useCallback(() => {
+    setCurrentSlide(prev => (prev === assets.heroImages.length - 1 ? 0 : prev + 1));
+  }, []);
+
+  const prevSlide = () => {
+    setCurrentSlide(prev => (prev === 0 ? assets.heroImages.length - 1 : prev - 1));
+  };
+  
+  const goToSlide = (index: number) => {
+    setCurrentSlide(index);
+  };
+
+  useEffect(() => {
+    const slideInterval = setInterval(nextSlide, 5000);
+    return () => clearInterval(slideInterval);
+  }, [nextSlide]);
+
   return (
     <div className="min-h-screen text-white">
       <main className="container mx-auto px-6 py-12">
@@ -31,8 +51,37 @@ export const HomePage: React.FC<HomePageProps> = ({ onViewDetails }) => {
                     </button>
                 </div>
             </div>
-             <div className="md:w-1/2 mt-8 md:mt-0 flex justify-center">
-                <img src="/__fp__/user_upload_6.png" alt="Mystery Box" className="rounded-lg shadow-2xl"/>
+             <div className="md:w-1/2 mt-8 md:mt-0 flex justify-center group">
+                <div className="relative w-full rounded-lg shadow-2xl overflow-hidden aspect-square max-w-md bg-black/20">
+                    <div 
+                        className="flex transition-transform duration-700 ease-in-out h-full"
+                        style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+                    >
+                        {assets.heroImages.map((src, index) => (
+                            <img key={index} src={src} alt={`Mystery Box Slide ${index + 1}`} className="w-full h-full flex-shrink-0 object-contain" />
+                        ))}
+                    </div>
+                    
+                    {/* Arrow Controls */}
+                    <button onClick={prevSlide} className="absolute top-1/2 left-2 transform -translate-y-1/2 bg-black/30 text-white p-2 rounded-full hover:bg-black/50 transition-all opacity-0 group-hover:opacity-100 focus:opacity-100" aria-label="Previous slide">
+                        <ChevronLeftIcon />
+                    </button>
+                    <button onClick={nextSlide} className="absolute top-1/2 right-2 transform -translate-y-1/2 bg-black/30 text-white p-2 rounded-full hover:bg-black/50 transition-all opacity-0 group-hover:opacity-100 focus:opacity-100" aria-label="Next slide">
+                        <ChevronRightIcon />
+                    </button>
+
+                    {/* Dots Navigation */}
+                    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
+                        {assets.heroImages.map((_, index) => (
+                            <button 
+                                key={index} 
+                                onClick={() => goToSlide(index)}
+                                className={`w-3 h-3 rounded-full ${currentSlide === index ? 'bg-yellow-400' : 'bg-white/50'} transition-colors hover:bg-yellow-300`}
+                                aria-label={`Go to slide ${index + 1}`}
+                            />
+                        ))}
+                    </div>
+                </div>
             </div>
         </div>
 

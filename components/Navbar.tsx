@@ -1,6 +1,7 @@
 
 import React from 'react';
-import { LogoIcon, CartIcon } from './icons';
+import { CartIcon } from './icons';
+import { assets } from '../assets';
 
 interface NavbarProps {
   onGoHome: () => void;
@@ -11,7 +12,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onGoHome }) => {
     <nav className="bg-[#0D1B2A] text-white sticky top-0 z-50 shadow-lg shadow-black/20">
       <div className="container mx-auto px-6 py-3 flex justify-between items-center">
         <button onClick={onGoHome} className="flex items-center space-x-3 hover:opacity-80 transition-opacity">
-          <LogoIcon />
+          <img src={assets.logo} alt="MysteryBox Logo" className="w-10 h-10" />
           <span className="text-2xl font-bold text-white tracking-wider">MysteryBox</span>
         </button>
         <div className="hidden md:flex items-center space-x-8">
