@@ -3,9 +3,17 @@ export const assets = {
     heroImages: [
         'https://i.ibb.co/b5rrhYdh/6145546679986801343.jpg', // Original
         'https://i.ibb.co/HfKvyNjb/6145546679986801345.jpg', // Original
-        
-        
     ],
+    animatedItems: {
+        box: 'https://i.ibb.co/b5rrhYdh/6145546679986801343.jpg',
+        laptop: 'https://i.ibb.co/vYvBfB4/laptop-trans.png',
+        iphone: 'https://i.ibb.co/yBPNs64/iphone.png',
+        car: 'https://i.ibb.co/9gqWzR9/car-trans.png',
+        bike: 'https://i.ibb.co/Wc2dYjN/bike-trans.png',
+        gold_chain: 'https://i.ibb.co/K2WwJ1m/gold-chain-trans.png',
+        gold_bar: 'https://i.ibb.co/bN9fMhW/gold-bar-trans.png',
+        silver_jewelry: 'https://i.ibb.co/9Yj1jLp/silver-jewelry-trans.png',
+    },
     paymentIcons: {
         upi: 'https://cdn.iconscout.com/icon/free/png-256/bhim-3-69845.png',
         card: 'https://cdn.iconscout.com/icon/free/png-256/visa-22-226458.png',

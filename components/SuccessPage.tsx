@@ -38,7 +38,7 @@ export const SuccessPage: React.FC<SuccessPageProps> = ({ customerName, onGoHome
   const lidOpenStyle = animationStep >= 2 ? { animation: 'box-open-lid 0.5s ease-in forwards' } : {};
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center text-white text-center p-4 overflow-hidden">
+    <div className="min-h-screen flex flex-col items-center justify-center text-gray-800 text-center p-4 overflow-hidden">
       <div className="relative w-64 h-64 mb-8" style={{ perspective: '1000px' }}>
         {/* Sparkles */}
         {animationStep >= 3 && sparklePositions.map((pos, i) => (
@@ -66,11 +66,11 @@ export const SuccessPage: React.FC<SuccessPageProps> = ({ customerName, onGoHome
       {animationStep >= 4 && (
         <div style={{ animation: 'fade-in-up 0.8s ease-out forwards' }}>
           <h1 className="text-5xl font-bold text-yellow-400">Purchase Successful!</h1>
-          <p className="mt-4 text-xl text-gray-300">
+          <p className="mt-4 text-xl text-gray-600">
             Thank you, {customerName}! Your royal surprise is on its way.
           </p>
           <div className="mt-10 flex space-x-4 justify-center">
-            <button className="bg-transparent border-2 border-gray-500 text-white font-bold py-3 px-8 rounded-lg hover:bg-gray-700 transition-colors">
+            <button className="bg-transparent border-2 border-gray-400 text-gray-700 font-bold py-3 px-8 rounded-lg hover:bg-gray-100 transition-colors">
               Track Order
             </button>
             <button 

@@ -1,4 +1,5 @@
 
+
 import React, { useState, useCallback } from 'react';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
@@ -71,7 +72,7 @@ function App() {
   };
 
   return (
-    <div className="bg-[#0D1B2A] min-h-screen font-sans">
+    <div className="bg-white min-h-screen font-sans">
       <Navbar onGoHome={handleGoHome} />
       <div className="transition-opacity duration-500 ease-in-out">
         {renderPage()}

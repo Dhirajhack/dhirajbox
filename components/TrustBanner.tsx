@@ -10,12 +10,12 @@ export const TrustBanner = () => {
   ];
 
   return (
-    <div className="bg-black/20 rounded-lg">
+    <div className="bg-gray-100 rounded-lg">
       <div className="container mx-auto px-6 py-4">
-        <div className="flex flex-col sm:flex-row justify-around items-center text-gray-300">
+        <div className="flex flex-col sm:flex-row justify-around items-center text-gray-700">
           {trustPoints.map((point, index) => (
             <div key={index} className="flex items-center space-x-3 my-2 sm:my-0">
-              <span className="text-yellow-400">{point.icon}</span>
+              <span className="text-yellow-500">{point.icon}</span>
               <span className="font-semibold">{point.text}</span>
             </div>
           ))}
