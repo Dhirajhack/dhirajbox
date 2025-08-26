@@ -1,5 +1,4 @@
 
-import React from 'react';
 import { ShieldCheckIcon } from './icons';
 
 export const Footer = () => {

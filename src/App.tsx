@@ -1,6 +1,5 @@
 
-
-import React, { useState, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { HomePage } from './components/HomePage';

@@ -1,5 +1,4 @@
 
-import React from 'react';
 import { ShieldCheckIcon, TruckIcon, SparklesIcon } from './icons';
 
 export const TrustBanner = () => {
